@@ -42,18 +42,34 @@ namespace ferrari_win_form2
             {
                 MessageBox.Show("Array pieno!", "Errore!");
             }
+            textnome.Text = "";
+            textprezzo.Text = "";
+            textmodnome.Text = "";
+            textmodprezzo.Text = "";
         }
-        private void buttoncancella_Click(object sender, EventArgs e)
+        private void buttoncancella_Click_1(object sender, EventArgs e)
         {
             CancellaS(textnome.Text, p, ref dim);
+            textnome.Text = "";
+            textprezzo.Text = "";
+            textmodnome.Text = "";
+            textmodprezzo.Text = "";
         }
         private void buttonmod_Click(object sender, EventArgs e)
         {
             Modifica(textmodnome.Text, float.Parse(textmodprezzo.Text), p);
+            textnome.Text = "";
+            textprezzo.Text = "";
+            textmodnome.Text = "";
+            textmodprezzo.Text = "";
         }
-        private void buttonsomma_Click(object sender, EventArgs e)
+        private void buttonsomma_Click_1(object sender, EventArgs e)
         {
             SommaProdotti(ref dim);
+            textnome.Text = "";
+            textprezzo.Text = "";
+            textmodnome.Text = "";
+            textmodprezzo.Text = "";
         }
         #endregion
 
@@ -138,5 +154,10 @@ namespace ferrari_win_form2
             MessageBox.Show($"La somma dei prezzi dei prodotti è di {somma.ToString("0.00")}€", "Somma prodotti");
         }
         #endregion
+
+        private void buttonser_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

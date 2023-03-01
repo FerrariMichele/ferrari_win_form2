@@ -114,6 +114,7 @@
             this.buttoncancella.TabIndex = 7;
             this.buttoncancella.Text = "Cancella";
             this.buttoncancella.UseVisualStyleBackColor = true;
+            this.buttoncancella.Click += new System.EventHandler(this.buttoncancella_Click_1);
             // 
             // buttonser
             // 
@@ -123,6 +124,7 @@
             this.buttonser.TabIndex = 13;
             this.buttonser.Text = "Ricerca";
             this.buttonser.UseVisualStyleBackColor = true;
+            this.buttonser.Click += new System.EventHandler(this.buttonser_Click);
             // 
             // buttonmod
             // 
@@ -132,6 +134,7 @@
             this.buttonmod.TabIndex = 12;
             this.buttonmod.Text = "Modifica";
             this.buttonmod.UseVisualStyleBackColor = true;
+            this.buttonmod.Click += new System.EventHandler(this.buttonmod_Click);
             // 
             // textmodprezzo
             // 
