@@ -68,7 +68,7 @@ namespace ferrari_win_form2
         }
         private void buttonsomma_Click_1(object sender, EventArgs e)
         {
-            SommaProdotti(ref dim);
+            SommaProdotti(dim);
             textnome.Text = "";
             textprezzo.Text = "";
             textmodnome.Text = "";
@@ -80,7 +80,7 @@ namespace ferrari_win_form2
         }
         private void buttonsomma_Click(object sender, EventArgs e)
         {
-            SommaProdotti(ref dim);
+            SommaProdotti(dim);
         }
         private void buttonpull_Click(object sender, EventArgs e)
         {
@@ -125,7 +125,7 @@ namespace ferrari_win_form2
         #region Funzioni servizio
         public string prodString(prodotto prod)
         {
-            return "Nome: " + prod.nome + " prezzo: " + prod.prezzo.ToString("0.00");
+            return "Nome: " + prod.nome + " prezzo: " + prod.prezzo.ToString("0.00") + "€";
         }
         public void Visualizza(prodotto[] prod)
         {
@@ -194,7 +194,7 @@ namespace ferrari_win_form2
                 }
             }
         }
-        public void SommaProdotti(ref int dim)
+        public void SommaProdotti(int dim)
         {
             somma = 0;
             for (int i = 0; i < dim; i++)
