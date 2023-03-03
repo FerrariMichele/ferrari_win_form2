@@ -76,7 +76,7 @@ namespace ferrari_win_form2
         }
         private void buttonmodprez_Click(object sender, EventArgs e)
         {
-            VariazionePrezzo(ref dim, float.Parse(textpercprezz.Text));
+            VariazionePrezzo(dim, float.Parse(textpercprezz.Text));
         }
         private void buttonsomma_Click(object sender, EventArgs e)
         {
@@ -86,7 +86,7 @@ namespace ferrari_win_form2
         {
             using (StreamReader sw = new StreamReader(path))
             {
-             
+                
             }
         }
         private void buttonpush_Click(object sender, EventArgs e)
@@ -137,7 +137,7 @@ namespace ferrari_win_form2
         }
         public int RicercaS(string e, prodotto[] prod)
         {
-            int risultatoricerca = 0;
+            int risultatoricerca = -1;
             for (int i = 0; i < prod.Length; i++)
             {
                 if (prod[i].nome == e)
@@ -145,25 +145,22 @@ namespace ferrari_win_form2
                     risultatoricerca = i;
                     break;
                 }
-                else
-                {
-                    risultatoricerca = -1;
-                }
             }
             return risultatoricerca;
         }
         public void CancellaS(string e, prodotto[] prod, ref int dim)
         {
             var rispCanc = MessageBox.Show("È sicuro di voler eliminare l'elemento?", "Conferma rimozione elemento", MessageBoxButtons.YesNo);
+            int ricerca = RicercaS(textnome.Text, prod);
             if (rispCanc == DialogResult.Yes)
             {
-                if (RicercaS(textnome.Text, prod) == -1)
+                if (ricerca == -1)
                 {
                     MessageBox.Show("Elemento non trovato!", "Errore!");
                 }
                 else
                 {
-                    for (int j = RicercaS(textnome.Text, prod); j < dim - 1; j++)
+                    for (int j = ricerca; j < dim - 1; j++)
                     {
                         prod[j] = prod[j + 1];
                     }
@@ -180,7 +177,7 @@ namespace ferrari_win_form2
             var rispMod = MessageBox.Show("È sicuro di voler modificare l'elemento?", "Conferma modifica elemento", MessageBoxButtons.YesNo);
             if (rispMod == DialogResult.Yes)
             {
-                if (RicercaS(textnome.Text, prod) == -1)
+                if (psx == -1)
                 {
                     MessageBox.Show("Elemento non trovato!", "Errore!");
                 }
@@ -203,7 +200,7 @@ namespace ferrari_win_form2
             }
             MessageBox.Show($"La somma dei prezzi dei prodotti è di {somma.ToString("0.00")}€", "Somma prodotti");
         }
-        public void VariazionePrezzo(ref int dim, float perc)
+        public void VariazionePrezzo(int dim, float perc)
         {
             var modPr = MessageBox.Show("È sicuro di voler modificare il prezzo dell'elemento (in base alla percentuale)?", "Conferma modifica prezzo elemento", MessageBoxButtons.YesNo);
             if (modPr == DialogResult.Yes)

@@ -228,7 +228,7 @@
             this.buttondellist.Name = "buttondellist";
             this.buttondellist.Size = new System.Drawing.Size(100, 23);
             this.buttondellist.TabIndex = 19;
-            this.buttondellist.Text = "Cancella file";
+            this.buttondellist.Text = "Nuovo file";
             this.buttondellist.UseVisualStyleBackColor = true;
             this.buttondellist.Click += new System.EventHandler(this.buttondellist_Click);
             // 
