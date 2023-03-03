@@ -36,12 +36,15 @@
             this.textprezzo = new System.Windows.Forms.TextBox();
             this.buttonaggiunta = new System.Windows.Forms.Button();
             this.buttoncancella = new System.Windows.Forms.Button();
-            this.buttonser = new System.Windows.Forms.Button();
             this.buttonmod = new System.Windows.Forms.Button();
             this.textmodprezzo = new System.Windows.Forms.TextBox();
             this.textmodnome = new System.Windows.Forms.TextBox();
             this.labelmodprezzo = new System.Windows.Forms.Label();
             this.labelmodnome = new System.Windows.Forms.Label();
+            this.buttonsomma = new System.Windows.Forms.Button();
+            this.buttonmodprez = new System.Windows.Forms.Button();
+            this.textpercprezz = new System.Windows.Forms.TextBox();
+            this.labelpercent = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // listView1
@@ -116,21 +119,11 @@
             this.buttoncancella.UseVisualStyleBackColor = true;
             this.buttoncancella.Click += new System.EventHandler(this.buttoncancella_Click_1);
             // 
-            // buttonser
-            // 
-            this.buttonser.Location = new System.Drawing.Point(139, 295);
-            this.buttonser.Name = "buttonser";
-            this.buttonser.Size = new System.Drawing.Size(100, 23);
-            this.buttonser.TabIndex = 13;
-            this.buttonser.Text = "Ricerca";
-            this.buttonser.UseVisualStyleBackColor = true;
-            this.buttonser.Click += new System.EventHandler(this.buttonser_Click);
-            // 
             // buttonmod
             // 
-            this.buttonmod.Location = new System.Drawing.Point(18, 295);
+            this.buttonmod.Location = new System.Drawing.Point(18, 232);
             this.buttonmod.Name = "buttonmod";
-            this.buttonmod.Size = new System.Drawing.Size(100, 23);
+            this.buttonmod.Size = new System.Drawing.Size(221, 23);
             this.buttonmod.TabIndex = 12;
             this.buttonmod.Text = "Modifica";
             this.buttonmod.UseVisualStyleBackColor = true;
@@ -138,14 +131,14 @@
             // 
             // textmodprezzo
             // 
-            this.textmodprezzo.Location = new System.Drawing.Point(139, 257);
+            this.textmodprezzo.Location = new System.Drawing.Point(139, 194);
             this.textmodprezzo.Name = "textmodprezzo";
             this.textmodprezzo.Size = new System.Drawing.Size(100, 20);
             this.textmodprezzo.TabIndex = 11;
             // 
             // textmodnome
             // 
-            this.textmodnome.Location = new System.Drawing.Point(18, 257);
+            this.textmodnome.Location = new System.Drawing.Point(18, 194);
             this.textmodnome.Name = "textmodnome";
             this.textmodnome.Size = new System.Drawing.Size(100, 20);
             this.textmodnome.TabIndex = 10;
@@ -153,7 +146,7 @@
             // labelmodprezzo
             // 
             this.labelmodprezzo.AutoSize = true;
-            this.labelmodprezzo.Location = new System.Drawing.Point(136, 241);
+            this.labelmodprezzo.Location = new System.Drawing.Point(136, 178);
             this.labelmodprezzo.Name = "labelmodprezzo";
             this.labelmodprezzo.Size = new System.Drawing.Size(42, 13);
             this.labelmodprezzo.TabIndex = 9;
@@ -162,18 +155,57 @@
             // labelmodnome
             // 
             this.labelmodnome.AutoSize = true;
-            this.labelmodnome.Location = new System.Drawing.Point(15, 241);
+            this.labelmodnome.Location = new System.Drawing.Point(15, 178);
             this.labelmodnome.Name = "labelmodnome";
             this.labelmodnome.Size = new System.Drawing.Size(38, 13);
             this.labelmodnome.TabIndex = 8;
             this.labelmodnome.Text = "Nome:";
+            // 
+            // buttonsomma
+            // 
+            this.buttonsomma.Location = new System.Drawing.Point(139, 343);
+            this.buttonsomma.Name = "buttonsomma";
+            this.buttonsomma.Size = new System.Drawing.Size(100, 23);
+            this.buttonsomma.TabIndex = 16;
+            this.buttonsomma.Text = "Somma dei prezzi";
+            this.buttonsomma.UseVisualStyleBackColor = true;
+            this.buttonsomma.Click += new System.EventHandler(this.buttonsomma_Click);
+            // 
+            // buttonmodprez
+            // 
+            this.buttonmodprez.Location = new System.Drawing.Point(18, 343);
+            this.buttonmodprez.Name = "buttonmodprez";
+            this.buttonmodprez.Size = new System.Drawing.Size(100, 23);
+            this.buttonmodprez.TabIndex = 15;
+            this.buttonmodprez.Text = "Modifica Prezzo";
+            this.buttonmodprez.UseVisualStyleBackColor = true;
+            this.buttonmodprez.Click += new System.EventHandler(this.buttonmodprez_Click);
+            // 
+            // textpercprezz
+            // 
+            this.textpercprezz.Location = new System.Drawing.Point(18, 305);
+            this.textpercprezz.Name = "textpercprezz";
+            this.textpercprezz.Size = new System.Drawing.Size(100, 20);
+            this.textpercprezz.TabIndex = 14;
+            // 
+            // labelpercent
+            // 
+            this.labelpercent.AutoSize = true;
+            this.labelpercent.Location = new System.Drawing.Point(15, 289);
+            this.labelpercent.Name = "labelpercent";
+            this.labelpercent.Size = new System.Drawing.Size(67, 13);
+            this.labelpercent.TabIndex = 13;
+            this.labelpercent.Text = "Percentuale:";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.buttonser);
+            this.Controls.Add(this.buttonsomma);
+            this.Controls.Add(this.buttonmodprez);
+            this.Controls.Add(this.textpercprezz);
+            this.Controls.Add(this.labelpercent);
             this.Controls.Add(this.buttonmod);
             this.Controls.Add(this.textmodprezzo);
             this.Controls.Add(this.textmodnome);
@@ -204,12 +236,15 @@
         private System.Windows.Forms.TextBox textprezzo;
         private System.Windows.Forms.Button buttonaggiunta;
         private System.Windows.Forms.Button buttoncancella;
-        private System.Windows.Forms.Button buttonser;
         private System.Windows.Forms.Button buttonmod;
         private System.Windows.Forms.TextBox textmodprezzo;
         private System.Windows.Forms.TextBox textmodnome;
         private System.Windows.Forms.Label labelmodprezzo;
         private System.Windows.Forms.Label labelmodnome;
+        private System.Windows.Forms.Button buttonsomma;
+        private System.Windows.Forms.Button buttonmodprez;
+        private System.Windows.Forms.TextBox textpercprezz;
+        private System.Windows.Forms.Label labelpercent;
     }
 }
 

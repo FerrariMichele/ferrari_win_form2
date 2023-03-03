@@ -71,8 +71,15 @@ namespace ferrari_win_form2
             textmodnome.Text = "";
             textmodprezzo.Text = "";
         }
+        private void buttonmodprez_Click(object sender, EventArgs e)
+        {
+            VariazionePrezzo(ref dim, float.Parse(textpercprezz.Text));
+        }
+        private void buttonsomma_Click(object sender, EventArgs e)
+        {
+            SommaProdotti(ref dim);
+        }
         #endregion
-
         #region Funzioni servizio
         public string prodString(prodotto p)
         {
@@ -127,6 +134,7 @@ namespace ferrari_win_form2
         }
         public void Modifica(string e, float pos, prodotto[] p)
         {
+            int psx = RicercaS(textnome.Text, p);
             var rispMod = MessageBox.Show("È sicuro di voler modificare l'elemento?", "Conferma modifica elemento", MessageBoxButtons.YesNo);
             if (rispMod == DialogResult.Yes)
             {
@@ -136,8 +144,8 @@ namespace ferrari_win_form2
                 }
                 else
                 {
-                    p[RicercaS(textnome.Text, p)].nome = e;
-                    p[RicercaS(textprezzo.Text, p)].prezzo = pos;
+                    p[psx].nome = e;
+                    p[psx].prezzo = pos;
                     listView1.Clear();
                     Visualizza(p);
                     MessageBox.Show("Elemento modificato correttamente!");
@@ -153,11 +161,22 @@ namespace ferrari_win_form2
             }
             MessageBox.Show($"La somma dei prezzi dei prodotti è di {somma.ToString("0.00")}€", "Somma prodotti");
         }
-        #endregion
-
-        private void buttonser_Click(object sender, EventArgs e)
+        public void VariazionePrezzo(ref int dim, float perc)
         {
-
+            var modPr = MessageBox.Show("È sicuro di voler modificare il prezzo dell'elemento (in base alla percentuale)?", "Conferma modifica prezzo elemento", MessageBoxButtons.YesNo);
+            if (modPr == DialogResult.Yes)
+            {
+                float modprod = 0;
+                for (int i = 0; i < dim; i++)
+                {
+                    modprod = p[i].prezzo + (p[i].prezzo * perc / 100);
+                    p[i].prezzo = modprod;
+                }
+                listView1.Clear();
+                Visualizza(p);
+                MessageBox.Show("Prezzo dell'elemento modificato correttamente!");
+            }
         }
+        #endregion
     }
 }
