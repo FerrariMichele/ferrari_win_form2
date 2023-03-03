@@ -30,7 +30,7 @@ namespace ferrari_win_form2
             InitializeComponent();
             prod = new prodotto[100];
             dim = 0;
-            toolsipsalva.SetToolTip(buttonpush, "Salva in coda al file pre-esistente o ne crea uno nuovo");
+            toolsipsalva.SetToolTip(buttonpush, "Salva in coda al file se pre-esistente, altrimenti ne crea uno nuovo");
         }
         private void buttonaggiunta_Click_1(object sender, EventArgs e)
         {
@@ -84,9 +84,20 @@ namespace ferrari_win_form2
         }
         private void buttonpull_Click(object sender, EventArgs e)
         {
-            using (StreamReader sw = new StreamReader(path))
+            using (StreamReader sr = File.OpenText(path))
             {
-                
+                string s;
+                if (!File.Exists(path))
+                {
+                    MessageBox.Show("Nessun file presente, creare un nuovo file");
+                }
+                else
+                {
+                    while ((s = sr.ReadLine()) != null)
+                    {
+                        listView1.Items.Add(s);
+                    }
+                }
             }
         }
         private void buttonpush_Click(object sender, EventArgs e)
@@ -115,11 +126,31 @@ namespace ferrari_win_form2
         }
         private void buttondellist_Click(object sender, EventArgs e)
         {
-            File.Delete(path);
+            var rispExt = MessageBox.Show("Chiudere l'applicazione?", "Uscita programma", MessageBoxButtons.YesNo);
+            if (rispExt == DialogResult.Yes)
+            {
+                var savefile = MessageBox.Show("Salvare modifiche alla lista?", "Salvataggio lista", MessageBoxButtons.YesNo);
+                if (savefile == DialogResult.No)
+                {
+                    File.Delete(path);
+                }
+                Application.Exit();
+            }
         }
         private void toolsipsalva_Popup(object sender, PopupEventArgs e)
         {
-
+        }
+        private void labelpercent_Click(object sender, EventArgs e)
+        {
+        }
+        private void labelnome_Click(object sender, EventArgs e)
+        {
+        }
+        private void labelprezzo_Click(object sender, EventArgs e)
+        {
+        }
+        private void titolo1_Click(object sender, EventArgs e)
+        {
         }
         #endregion
         #region Funzioni servizio
