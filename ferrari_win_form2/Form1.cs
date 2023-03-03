@@ -5,9 +5,11 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ferrari_win_form2
 {
@@ -87,15 +89,20 @@ namespace ferrari_win_form2
             using (StreamReader sr = File.OpenText(path))
             {
                 string s;
+
                 if (!File.Exists(path))
                 {
-                    MessageBox.Show("Nessun file presente, creare un nuovo file");
+                    MessageBox.Show("Nessun file trovato");
                 }
                 else
                 {
                     while ((s = sr.ReadLine()) != null)
                     {
-                        listView1.Items.Add(s);
+                        string[] dati = s.Split(';');
+                        prod[dim].nome = dati[0];
+                        prod[dim].prezzo = float.Parse(dati[1]);
+                        dim++;
+                        Visualizza(prod);
                     }
                 }
             }
@@ -114,7 +121,7 @@ namespace ferrari_win_form2
             }
             else
             {
-                using (StreamWriter sw = new StreamWriter(path,append:true))
+                using (StreamWriter sw = new StreamWriter(path,append:false))
                 {
                     for (int i = 0; i < dim; i++)
                     {
@@ -129,7 +136,7 @@ namespace ferrari_win_form2
             var rispExt = MessageBox.Show("Chiudere l'applicazione?", "Uscita programma", MessageBoxButtons.YesNo);
             if (rispExt == DialogResult.Yes)
             {
-                var savefile = MessageBox.Show("Salvare modifiche alla lista?", "Salvataggio lista", MessageBoxButtons.YesNo);
+                var savefile = MessageBox.Show("Salvare la lista?", "Salvataggio lista", MessageBoxButtons.YesNo);
                 if (savefile == DialogResult.No)
                 {
                     File.Delete(path);
