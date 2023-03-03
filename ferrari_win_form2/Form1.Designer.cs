@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.listView1 = new System.Windows.Forms.ListView();
             this.titolo1 = new System.Windows.Forms.Label();
             this.labelnome = new System.Windows.Forms.Label();
@@ -45,6 +46,10 @@
             this.buttonmodprez = new System.Windows.Forms.Button();
             this.textpercprezz = new System.Windows.Forms.TextBox();
             this.labelpercent = new System.Windows.Forms.Label();
+            this.buttonpush = new System.Windows.Forms.Button();
+            this.buttonpull = new System.Windows.Forms.Button();
+            this.buttondellist = new System.Windows.Forms.Button();
+            this.toolsipsalva = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // listView1
@@ -177,7 +182,7 @@
             this.buttonmodprez.Name = "buttonmodprez";
             this.buttonmodprez.Size = new System.Drawing.Size(100, 23);
             this.buttonmodprez.TabIndex = 15;
-            this.buttonmodprez.Text = "Modifica Prezzo";
+            this.buttonmodprez.Text = "Modifica prezzo";
             this.buttonmodprez.UseVisualStyleBackColor = true;
             this.buttonmodprez.Click += new System.EventHandler(this.buttonmodprez_Click);
             // 
@@ -197,11 +202,48 @@
             this.labelpercent.TabIndex = 13;
             this.labelpercent.Text = "Percentuale:";
             // 
+            // buttonpush
+            // 
+            this.buttonpush.Location = new System.Drawing.Point(139, 415);
+            this.buttonpush.Name = "buttonpush";
+            this.buttonpush.Size = new System.Drawing.Size(100, 23);
+            this.buttonpush.TabIndex = 18;
+            this.buttonpush.Text = "Salva su file";
+            this.buttonpush.UseVisualStyleBackColor = true;
+            this.buttonpush.Click += new System.EventHandler(this.buttonpush_Click);
+            // 
+            // buttonpull
+            // 
+            this.buttonpull.Location = new System.Drawing.Point(18, 415);
+            this.buttonpull.Name = "buttonpull";
+            this.buttonpull.Size = new System.Drawing.Size(100, 23);
+            this.buttonpull.TabIndex = 17;
+            this.buttonpull.Text = "Recupera da file";
+            this.buttonpull.UseVisualStyleBackColor = true;
+            this.buttonpull.Click += new System.EventHandler(this.buttonpull_Click);
+            // 
+            // buttondellist
+            // 
+            this.buttondellist.Location = new System.Drawing.Point(260, 415);
+            this.buttondellist.Name = "buttondellist";
+            this.buttondellist.Size = new System.Drawing.Size(100, 23);
+            this.buttondellist.TabIndex = 19;
+            this.buttondellist.Text = "Cancella file";
+            this.buttondellist.UseVisualStyleBackColor = true;
+            this.buttondellist.Click += new System.EventHandler(this.buttondellist_Click);
+            // 
+            // toolsipsalva
+            // 
+            this.toolsipsalva.Popup += new System.Windows.Forms.PopupEventHandler(this.toolsipsalva_Popup);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttondellist);
+            this.Controls.Add(this.buttonpush);
+            this.Controls.Add(this.buttonpull);
             this.Controls.Add(this.buttonsomma);
             this.Controls.Add(this.buttonmodprez);
             this.Controls.Add(this.textpercprezz);
@@ -245,6 +287,10 @@
         private System.Windows.Forms.Button buttonmodprez;
         private System.Windows.Forms.TextBox textpercprezz;
         private System.Windows.Forms.Label labelpercent;
+        private System.Windows.Forms.Button buttonpush;
+        private System.Windows.Forms.Button buttonpull;
+        private System.Windows.Forms.Button buttondellist;
+        private System.Windows.Forms.ToolTip toolsipsalva;
     }
 }
 
