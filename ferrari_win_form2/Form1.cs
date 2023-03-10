@@ -20,6 +20,7 @@ namespace ferrari_win_form2
         {
             public string nome;
             public float prezzo;
+            public int quantita;
         }
         public prodotto[] prod;
         public int dim;
@@ -38,9 +39,27 @@ namespace ferrari_win_form2
         {
             if (dim < prod.Length)
             {
-                prod[dim].nome = textnome.Text;
-                prod[dim].prezzo = float.Parse(textprezzo.Text);
-                dim++;
+                bool presente = false;
+                int pos = 0;
+                for (int i = 0; i < prod.Length; i++)
+                {
+                    if (textnome.Text == prod[i].nome)
+                    {
+                        presente = true;
+                        pos = i;
+                    }
+                }
+                if (!presente)
+                {
+                    prod[dim].nome = textnome.Text;
+                    prod[dim].prezzo = float.Parse(textprezzo.Text);
+                    prod[dim].quantita = 1;
+                    dim++;
+                }
+                else
+                {
+                    prod[pos].quantita++;
+                }
                 Visualizza(prod);
             }
             else
@@ -167,7 +186,7 @@ namespace ferrari_win_form2
         #region Funzioni servizio
         public string prodString(prodotto prod)
         {
-            return "Nome: " + prod.nome + " prezzo: " + prod.prezzo.ToString("0.00") + "€";
+            return "Nome: " + prod.nome + " prezzo: " + prod.prezzo.ToString("0.00") + "€ quantità: " + prod.quantita;
         }
         public void Visualizza(prodotto[] prod)
         {
