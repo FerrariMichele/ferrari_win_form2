@@ -159,6 +159,10 @@ namespace ferrari_win_form2
         private void titolo1_Click(object sender, EventArgs e)
         {
         }
+        private void buttonminmax_Click(object sender, EventArgs e)
+        {
+            MinMax(dim, prod);
+        }
         #endregion
         #region Funzioni servizio
         public string prodString(prodotto prod)
@@ -253,6 +257,18 @@ namespace ferrari_win_form2
                 Visualizza(prod);
                 MessageBox.Show("Prezzo dell'elemento modificato correttamente!");
             }
+        }
+        public void MinMax(int dim, prodotto[] prod)
+        {
+            int min = 0, max = 0;
+            for (int i = 0; i < dim; i++)
+            {
+                if (prod[min].prezzo > prod[i].prezzo)
+                    min = i;
+                if (prod[max].prezzo < prod[i].prezzo)
+                    max = i;
+            }
+            MessageBox.Show($"Prezzo Maggiore: {prod[max].nome} ({prod[max].prezzo.ToString("0.00")}€)\nPrezzo Minore: {prod[min].nome} ({prod[min].prezzo.ToString("0.00")}€)");
         }
         #endregion
     }

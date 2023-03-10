@@ -53,6 +53,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.buttonminmax = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -288,12 +289,24 @@
             this.pictureBox3.TabIndex = 22;
             this.pictureBox3.TabStop = false;
             // 
+            // buttonminmax
+            // 
+            this.buttonminmax.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonminmax.Location = new System.Drawing.Point(139, 286);
+            this.buttonminmax.Name = "buttonminmax";
+            this.buttonminmax.Size = new System.Drawing.Size(100, 23);
+            this.buttonminmax.TabIndex = 23;
+            this.buttonminmax.Text = "Massimo/Minimo";
+            this.buttonminmax.UseVisualStyleBackColor = true;
+            this.buttonminmax.Click += new System.EventHandler(this.buttonminmax_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Orange;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonminmax);
             this.Controls.Add(this.labelpercent);
             this.Controls.Add(this.textpercprezz);
             this.Controls.Add(this.buttonsomma);
@@ -353,6 +366,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Button buttonminmax;
     }
 }
 
