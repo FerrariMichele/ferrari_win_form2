@@ -134,7 +134,7 @@ namespace ferrari_win_form2
                 {
                     for (int i = 0; i < dim; i++)
                     {
-                        sw.WriteLine($"{prod[i].nome};{prod[i].prezzo}");
+                        sw.WriteLine($"{prod[i].nome};{prod[i].prezzo};{prod[i].quantita}");
                     }
                 }    
             }
@@ -144,7 +144,7 @@ namespace ferrari_win_form2
                 {
                     for (int i = 0; i < dim; i++)
                     {
-                        sw.WriteLine($"{prod[i].nome};{prod[i].prezzo}");
+                        sw.WriteLine($"{prod[i].nome};{prod[i].prezzo};{prod[i].quantita}");
                     }
                 }
             }
